@@ -10,7 +10,7 @@ class Area(models.Model):
     
 
 class CustomUser(AbstractUser):
-    area = models.ForeignKey(Area, on_delete=models.PROTECT)
+    area = models.ForeignKey(Area, on_delete=models.PROTECT, null=True)
 
     def __str__(self):
         return f'{self.username} - {self.area}'
