@@ -43,5 +43,5 @@ class CustomTokenVerifySerializer(TokenVerifySerializer):
         user_id = jwt_decode(attrs.get('token'), settings.SECRET_KEY, algorithms=[
                              'HS256'])['user']['id']
         if user_id:
-            user = User.objects.get(id=user_id)
+            user = CustomUser.objects.get(id=user_id)
             return {"current_user": UserSerializer(user).data}
